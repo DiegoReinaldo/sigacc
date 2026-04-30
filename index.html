@@ -16,8 +16,33 @@
     <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
     <script src="https://unpkg.com/downloadjs@1.4.7"></script>
 
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css"><script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "firebase/app";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAb2TxPUPUTohENSFQYJrh_4okKIIJx4Js",
+            authDomain: "sigacc.firebaseapp.com",
+            projectId: "sigacc",
+            storageBucket: "sigacc.firebasestorage.app",
+            messagingSenderId: "150757347161",
+            appId: "1:150757347161:web:e7678a8580eddaf6438648"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+
+        // Tornar global para o seu script.js (opcional, ou transforme o script.js em module)
+        window.db = db;
+        window.auth = auth;
+    </script>
+
+    <script src="script.js" type="module"></script>
 </head>
 
 <body>
