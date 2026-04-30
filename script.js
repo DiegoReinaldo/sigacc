@@ -343,9 +343,6 @@ let currentUser = {
 let isDev = false;
 let horasChart = null;
 
-// Inicialização do IndexedDB
-const request = indexedDB.open("SIGACC_DB", 15);
-
 request.onupgradeneeded = function (event) {
     db = event.target.result;
 
@@ -787,6 +784,9 @@ function formatarTamanhoDoArquivo(bytes) {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
 }
 
+// Exemplo de Login com Firebase
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
 // Sistema de login
 function handleLoginSubmit(e) {
     e.preventDefault();
@@ -1044,6 +1044,8 @@ function arquivoParaArrayBuffer(file) { // Função para converter arquivo para 
         reader.readAsArrayBuffer(file);
     });
 }
+
+import { collection, addDoc, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 async function handleCadastroSubmit(e) { // Cadastro de atividades
     e.preventDefault();
